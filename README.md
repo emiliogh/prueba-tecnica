@@ -41,13 +41,21 @@ env:
 DB_CONNECTION=mysql
 
 DB_HOST=127.0.0.1
+
 DB_PORT=3306
+
 DB_DATABASE=db_empleados
+
 DB_USERNAME=root
+
 DB_PASSWORD=
+
 Ejecutar migraciones:
+
 php artisan migrate
+
 Levantar servidor:
+
 php artisan serve
 
 ### 2. Frontend (Angular)
@@ -88,6 +96,7 @@ POST http://localhost:8000/api/oauth2/token → La respuesta generará un Token 
 En los Endpoints a probar a continuación se deberá seleccionar la pestaña Authorization, luego en Auth type seleccionar Bearer Token, pegar el token generado 
 
 -- Endpoints Empleado
+
 GET  http://localhost:8000/api/empleados → listar empleados
 
 POST http://localhost:8000/api/empleados → crear empleados (llenando los datos en Params)
@@ -99,6 +108,7 @@ PUT  http://localhost:8000/api/empleados/{id} → actualizar empleado por id (ll
 DELETE http://localhost:8000/api/empleados/{id} → eliminar empleado (No es buena práctica eliminar sin embargo se hace con fines de la práctica)
 
 -- Endpoints Familiares directos
+
 GET  http://localhost:8000/api/empleados/{id}/familiares → listar familiares
 
 POST http://localhost:8000/api/empleados/{id}/familiares → crear familiares
