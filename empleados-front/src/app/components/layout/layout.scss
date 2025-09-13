@@ -1,0 +1,36 @@
+
+
+
+
+// Sidebar Bootstrap custom
+.sidebar {
+  min-height: 100vh;
+  background: #fff;
+  border-right: 1px solid #e5e7eb;
+  box-shadow: 2px 0 8px rgba(30,40,60,0.04);
+}
+.sidebar .nav-link {
+  color: #333;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: background 0.18s, color 0.18s;
+  margin-bottom: 0.2rem;
+}
+.sidebar .nav-link.active, .sidebar .nav-link:focus, .sidebar .nav-link:hover {
+  background: #e3f0fc !important;
+  color: #1976d2 !important;
+}
+.sidebar .fs-5 {
+  color: #1976d2;
+  letter-spacing: 0.5px;
+}
+.sidebar .small {
+  color: #b0b8c1 !important;
+}
+.sidebar .bi {
+  font-size: 1.2rem;
+}
+main.bg-light {
+  background: #f4f6fa !important;
+  min-height: 100vh;
+}

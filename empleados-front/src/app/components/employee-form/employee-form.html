@@ -1,0 +1,42 @@
+<div class="container py-4" style="max-width: 500px;">
+	<h2 class="mb-4">{{ isEdit ? 'Editar empleado' : 'Nuevo empleado' }}</h2>
+	<div *ngIf="loading" class="alert alert-info">Cargando...</div>
+	<div *ngIf="errorMsg" class="alert alert-danger">{{ errorMsg }}</div>
+	<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" class="p-4 rounded bg-white shadow-sm">
+		<div class="mb-3">
+			<label for="nombre" class="form-label">Nombre</label>
+			<input type="text" id="nombre" class="form-control" formControlName="nombre" [ngClass]="{'is-invalid': nombre?.invalid && nombre?.touched}">
+			<div *ngIf="nombre?.invalid && nombre?.touched" class="invalid-feedback">
+				<div *ngIf="nombre?.errors?.['required']">El nombre es obligatorio.</div>
+				<div *ngIf="nombre?.errors?.['maxLength']">Máximo 100 caracteres.</div>
+			</div>
+		</div>
+		<div class="mb-3">
+			<label for="correo" class="form-label">Correo electrónico</label>
+			<input type="email" id="correo" class="form-control" formControlName="correo" [ngClass]="{'is-invalid': correo?.invalid && correo?.touched}">
+			<div *ngIf="correo?.invalid && correo?.touched" class="invalid-feedback">
+				<div *ngIf="correo?.errors?.['required']">El correo es obligatorio.</div>
+				<div *ngIf="correo?.errors?.['email']">Correo no válido.</div>
+			</div>
+		</div>
+			<div class="mb-3">
+				<label for="cargo" class="form-label">Cargo</label>
+				<input type="text" id="cargo" class="form-control" formControlName="cargo" [ngClass]="{'is-invalid': cargo?.invalid && cargo?.touched}">
+				<div *ngIf="cargo?.invalid && cargo?.touched" class="invalid-feedback">
+					<div *ngIf="cargo?.errors?.['required']">El cargo es obligatorio.</div>
+					<div *ngIf="cargo?.errors?.['maxLength']">Máximo 50 caracteres.</div>
+				</div>
+			</div>
+			<div class="mb-3">
+				<label for="fecha_ingreso" class="form-label">Fecha de ingreso</label>
+				<input type="date" id="fecha_ingreso" class="form-control" formControlName="fecha_ingreso" [ngClass]="{'is-invalid': fecha_ingreso?.invalid && fecha_ingreso?.touched}">
+				<div *ngIf="fecha_ingreso?.invalid && fecha_ingreso?.touched" class="invalid-feedback">
+					<div *ngIf="fecha_ingreso?.errors?.['required']">La fecha de ingreso es obligatoria.</div>
+				</div>
+			</div>
+		<button type="submit" class="btn btn-primary w-100" [disabled]="loading">
+			{{ isEdit ? 'Actualizar empleado' : 'Guardar empleado' }}
+		</button>
+		<a routerLink="/empleados" class="btn btn-link w-100 mt-2">Cancelar</a>
+	</form>
+</div>

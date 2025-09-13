@@ -1,0 +1,31 @@
+<form [formGroup]="familiarForm" (ngSubmit)="onSubmit()" class="p-3 rounded bg-light border mb-4">
+  <div class="row g-2">
+    <div class="col-md-5">
+      <label for="nombre_familiar" class="form-label">Nombre del familiar</label>
+      <input type="text" id="nombre_familiar" class="form-control" placeholder="Nombre del familiar" formControlName="nombre_familiar" [ngClass]="{'is-invalid': nombre_familiar?.invalid && nombre_familiar?.touched}">
+      <div *ngIf="nombre_familiar?.invalid && nombre_familiar?.touched" class="invalid-feedback">
+        <div *ngIf="nombre_familiar?.errors?.['required']">El nombre es obligatorio.</div>
+        <div *ngIf="nombre_familiar?.errors?.['maxLength']">Máximo 100 caracteres.</div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <label for="parentesco" class="form-label">Parentesco</label>
+      <input type="text" id="parentesco" class="form-control" placeholder="Parentesco" formControlName="parentesco" [ngClass]="{'is-invalid': parentesco?.invalid && parentesco?.touched}">
+      <div *ngIf="parentesco?.invalid && parentesco?.touched" class="invalid-feedback">
+        <div *ngIf="parentesco?.errors?.['required']">El parentesco es obligatorio.</div>
+        <div *ngIf="parentesco?.errors?.['maxLength']">Máximo 50 caracteres.</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <label for="fecha_nacimiento" class="form-label">Fecha de nacimiento</label>
+      <input type="date" id="fecha_nacimiento" class="form-control" formControlName="fecha_nacimiento" [ngClass]="{'is-invalid': fecha_nacimiento?.invalid && fecha_nacimiento?.touched}">
+      <div *ngIf="fecha_nacimiento?.invalid && fecha_nacimiento?.touched" class="invalid-feedback">
+        <div *ngIf="fecha_nacimiento?.errors?.['required']">La fecha de nacimiento es obligatoria.</div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-2 d-flex gap-2">
+    <button type="submit" class="btn btn-primary btn-sm" [disabled]="loading">Agregar familiar</button>
+    <span *ngIf="errorMsg" class="text-danger small">{{ errorMsg }}</span>
+  </div>
+</form>

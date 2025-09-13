@@ -1,0 +1,31 @@
+<div class="container-fluid">
+	<div class="row flex-nowrap min-vh-100">
+		<!-- Sidebar Bootstrap -->
+		<nav class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-body border-end sidebar shadow-sm d-flex flex-column align-items-center align-items-sm-start py-3">
+			<a routerLink="/empleados" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-decoration-none border-bottom w-100 px-3" routerLinkActive="active">
+				<span class="fs-5 fw-bold text-primary"><i class="bi bi-people-fill me-2"></i>Empleados</span>
+			</a>
+			<ul class="nav nav-pills flex-column mb-auto w-100 mt-4 gap-1">
+				<li class="nav-item w-100">
+					<a routerLink="/empleados" routerLinkActive="active" class="nav-link d-flex align-items-center px-3">
+						<i class="bi bi-list-ul me-2"></i>
+						<span class="d-none d-sm-inline">Listado</span>
+					</a>
+				</li>
+				<li class="nav-item w-100">
+					<a routerLink="/empleados/nuevo" routerLinkActive="active" class="nav-link d-flex align-items-center px-3">
+						<i class="bi bi-person-plus-fill me-2"></i>
+						<span class="d-none d-sm-inline">Nuevo</span>
+					</a>
+				</li>
+			</ul>
+			<div class="mt-auto w-100 px-3 small text-secondary border-top pt-3 text-center">
+				© 2025 Emilio Cardona
+			</div>
+		</nav>
+		<!-- Zona de trabajo -->
+		<main class="col py-4 px-4 bg-light min-vh-100">
+			<router-outlet></router-outlet>
+		</main>
+	</div>
+</div>
